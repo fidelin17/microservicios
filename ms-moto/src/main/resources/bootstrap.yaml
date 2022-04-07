@@ -1,6 +1,8 @@
+server:
+  port: 8083
 spring:
   application:
-    name: moto-service
+    name: ms-moto
   cloud:
     config:
       enabled: true
