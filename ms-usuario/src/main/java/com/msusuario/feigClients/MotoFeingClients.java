@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.List;
 
-@FeignClient(name = "ms-moto")               //url = "http://localhost:8083/moto")
+@FeignClient(name = "ms-moto") //url = "http://localhost:8083/moto")
 public interface MotoFeingClients {
 
     @PostMapping()
