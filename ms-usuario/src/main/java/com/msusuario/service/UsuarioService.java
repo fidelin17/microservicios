@@ -49,7 +49,7 @@ public class UsuarioService {
     }
 
     public List<Motos> listamotos(int userid){
-        List<Motos> motos=restTemplate.getForObject("http://ms-carro/moto/byuser/"+userid,List.class); //http://localhost:8083/moto/byuser/
+        List<Motos> motos=restTemplate.getForObject("http://ms-moto/moto/byuser/"+userid,List.class); //http://localhost:8083/moto/byuser/
         return motos;
 
     }
