@@ -1,9 +1,12 @@
-package com.msconfig;
+package com.msconfigserver;
 
 import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.config.server.EnableConfigServer;
 
 @SpringBootApplication
+@EnableConfigServer
 public class MsconfigServerApplication {
 
 	public static void main(String[] args) {
