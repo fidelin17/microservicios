@@ -6,8 +6,8 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@FeignClient(name = "ms-carro")//url = "http://localhost:8082/carro")
-@RequestMapping("/carro")
+@FeignClient(name = "ms-carro/carro")//url = "http://localhost:8082/carro")
+
 public interface CarFeingClients {
 
     @PostMapping()
