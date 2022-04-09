@@ -44,7 +44,7 @@ public class UsuarioService {
     }
 
     public List<Carros> listaCarros(int userid){
-        List<Carros> carros=restTemplate.getForObject("http://ms-carro/moto/byuser/"+userid,List.class); //http://localhost:8082/carro/byuser/
+        List<Carros> carros=restTemplate.getForObject("http://ms-carro/carro/byuser/"+userid,List.class); //http://localhost:8082/carro/byuser/
         return carros;
     }
 
@@ -83,9 +83,9 @@ public class UsuarioService {
             }
             List<Motos> motos=motoFeingClients.getMotos(userid);
             if(motos.isEmpty()){
-                resul.put("Motos","el usuario no tiene motos");
+                resul.put("Moto","el usuario no tiene motos");
             }else{
-                resul.put("Motos",motos);
+                resul.put("Moto",motos);
             }
             return resul;
         }
