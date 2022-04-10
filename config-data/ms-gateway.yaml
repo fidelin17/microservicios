@@ -13,6 +13,8 @@ eureka:
 spring:
   cloud:
     gateway:
+      default-filters:
+        - TokenRelay
       discovery:
         locator:
           enabled: true
@@ -21,6 +23,8 @@ spring:
           uri: lb://ms-usuario
           predicates:
             - Path=/usuario/**
+          filters:
+            - RemoveRequestHeader=Cookie
         - id: ms-carro
           uri: lb://ms-carro
           predicates:
@@ -29,3 +33,20 @@ spring:
           uri: lb://ms-moto
           predicates:
             - Path=/moto/**
+
+  security:
+    oauth2:
+      client:
+        provider:
+          keycloak:
+            authorization-uri: http://localhost:8180/auth/realms/fidelin-realm/protocol/openid-connect/auth
+            userinfo-uri: http://localhost:8180/auth/realms/fidelin-realm/protocol/openid-connect/userinfo
+            user-name-attribute: preferred_username
+            token-uri: http://localhost:8180/auth/realms/fidelin-realm/protocol/openid-connect/token
+        registration:
+          fidelin-client:
+            provider: keycloak
+            client-id: fidelin-client
+            client-secret: 0d2b63d5-555b-419f-a918-3ce57aa57566
+            authorization-grant-type: authorization_code
+            redirect-uri: "{baseUrl}/login/oauth2/code/fidelin-client"
