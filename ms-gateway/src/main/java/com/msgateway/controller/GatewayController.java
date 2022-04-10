@@ -13,7 +13,7 @@ public class GatewayController {
     public Mono<String> index(WebSession session){
         return Mono.just(session.getId());
     }
-
+    @GetMapping("/token")
     public  Mono<String> getToken(@RegisteredOAuth2AuthorizedClient OAuth2AuthorizedClient client){
         return  Mono.just(client.getAccessToken().getTokenValue());
     }
